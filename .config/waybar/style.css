@@ -1,0 +1,43 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background rgba(0, 0, 0, 0.75);
+@define-color background-hover rgba(25, 25, 25, 0.75);
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    color: @foreground;
+    background-color: @background;
+}
+
+#workspaces button {
+	color: @foreground;
+	padding-left: 0.25em;
+	padding-right: 0.25em;
+}
+
+#workspaces button.empty {
+	color: @foreground-inactive;
+}
+
+#workspaces button:hover {
+	background: @background-hover;
+	box-shadow: none;
+}
+
+#custom-media,
+#cpu,
+#temperature,
+#network,
+#bluetooth,
+#wireplumber,
+#battery,
+#custom-power {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
