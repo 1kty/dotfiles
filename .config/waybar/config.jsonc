@@ -2,7 +2,7 @@
 	"layer": "top",
 	"position": "top",
 
-	"height": 26,
+	"height": 28,
 	"spacing": 5,
 	
 	"modules-left": ["hyprland/workspaces", "custom/media"],
