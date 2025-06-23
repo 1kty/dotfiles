@@ -38,6 +38,7 @@ zinit cdreplay -q
 EDITOR="nvim"
 VISUAL="nvim"
 PAGER="less -R"
+TERMINAL="foot"
 
 # aliases
 alias eza="eza --icons --group-directories-first --color=always -a"
