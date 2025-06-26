@@ -1,0 +1,21 @@
+layer=overlay
+anchor=top-right
+sort=-time
+font=monospace 11
+
+default-timeout=5000
+ignore-timeout=0
+
+icons=1
+border-radius=4
+border-size=1
+width=300
+height=800
+padding=10
+background-color=#181818e6
+border-color=#9e9e9ee6
+text-color=#ffffff
+
+[urgency=high]
+border-color=#e67e80e6
+default-timeout=0
