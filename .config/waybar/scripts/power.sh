@@ -6,6 +6,6 @@ case "$choice" in
 	"Shutdown") systemctl poweroff ;;
 	"Reboot") systemctl reboot ;;
 	"Suspend") systemctl suspend ;;
-	"Lock") lock ;;
+	"Lock") hyprlock ;;
 	"Logout") pkill -KILL -u $USER ;;
 esac
