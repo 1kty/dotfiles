@@ -39,6 +39,7 @@ EDITOR="nvim"
 VISUAL="nvim"
 PAGER="less -R"
 TERMINAL="foot"
+export PATH=$PATH:/home/kz/.spicetify
 
 # aliases
 alias eza="eza --icons --group-directories-first --color=always -a"
@@ -106,3 +107,4 @@ function yazi() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
