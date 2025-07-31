@@ -29,11 +29,7 @@ AUR_PKGS=(
 echo Installing AUR packages...
 yay -S --noconfirm "${AUR_PKGS[@]}"w
 
-# 5. GNOME extensions installation (using gnome-extensions-cli)
-echo Installing GNOME extensions...
-gext install Bluetooth-Battery-Meter@maniacx.github.com blur-my-shell@aunetx clipboard-history@alexsaveau.dev dash2dock-lite@icedman.github.com just-perfection-desktop@just-perfection mediacontrols@cliffniff.github.com top-bar-organizer@julian.gse.jsts.xyz quick-settings-avatar@d-go user-theme@gnome-shell-extensions.gcampax.github.com Vitals@CoreCoding.com
-
-# 6. Themes and icons
+# 5. Themes and icons
 mkdir -p ~/Themes
 
 echo Installing WhiteSur theme...
@@ -56,7 +52,7 @@ git clone https://github.com/vinceliuice/MacTahoe-icon-theme
 MacTahoe-icon-theme/install.sh
 cd ~
 
-# 7. Languages and runtimes
+# 6. Languages and runtimes
 # Rust
 echo Setting up Rust...
 rustup default stable
@@ -77,6 +73,21 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 nvm set-colors cgYmW
 npm install -g pnpm
+
+# 7. Visual Studio Code extensions installation
+EXTENSIONS=(
+  ms-python.python
+  esbenp.prettier-vscode
+  ms-vscode.cpptools
+  ms-azuretools.vscode-docker
+  eamodio.gitlens
+  dbaeumer.vscode-eslint
+)
+
+echo Installing Visual Studio Code extensions...
+for extension in "${EXTENSIONS[@]}"; do
+  code --install-extension "$extension" --force
+done
 
 # 8. Change user shell
 echo Changing user shell...

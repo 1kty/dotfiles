@@ -4,14 +4,10 @@
 
 CHEZMOI_SYSTEM="$HOME/.local/chezmoi_system"
 
-{{ if ne .track_system_config "true" }}
-    exit 0
-{{ end -}}
-
 echo Copying system dotfiles...
 
 # Include all hidden files but ignore `.keep`
-for d in $(find $CHEZMOI_SYSTEM -type f -iname '***' ! -iname '**.keep'); do
+for d in $(find $CHEZMOI_SYSTEM -type f); do
     # Remove "$HOME/.local/chezmoi_system" from file path
     real_file="${d#$CHEZMOI_SYSTEM}"
     # Equivalent to dirname "$real_file"
