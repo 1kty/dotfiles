@@ -76,12 +76,15 @@ npm install -g pnpm
 
 # 7. Visual Studio Code extensions installation
 EXTENSIONS=(
-  ms-python.python
-  esbenp.prettier-vscode
-  ms-vscode.cpptools
-  ms-azuretools.vscode-docker
-  eamodio.gitlens
+  charliermarsh.ruff
   dbaeumer.vscode-eslint
+  esbenp.prettier-vscode
+  fabiospampinato.vscode-monokai-night
+  jonathanharty.gruvbox-material-icon-theme
+  ms-python.debugpy
+  ms-python.python
+  ms-python.vscode-pylance
+  ms-python.vscode-python-envs
 )
 
 echo Installing Visual Studio Code extensions...
