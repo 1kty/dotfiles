@@ -112,9 +112,3 @@ function yazi() {
 	rm -f -- "$tmp"
 }
 
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/kz/.dart-cli-completion/zsh-config.zsh ]] && . /home/kz/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
