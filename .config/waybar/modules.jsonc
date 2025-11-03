@@ -1,6 +1,7 @@
 {
     // left - group/vitals
     "battery": {
+        "interval": 10,
         "states": {
             "warning": 20,
             "critical": 10
