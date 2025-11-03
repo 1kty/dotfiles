@@ -1,6 +1,0 @@
-[Unit]
-Description=Synchronize calendars and contacts via vdirsyncer
-
-[Service]
-ExecStart=/usr/bin/vdirsyncer sync
-

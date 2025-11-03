@@ -1,79 +1,24 @@
 {
-	"layer": "top",
-	"position": "top",
+    "layer": "top",
+    "position": "top",
 
-	"height": 28,
-	"spacing": 5,
-	
-	"modules-left": ["hyprland/workspaces", "custom/media"],
-	"modules-center": ["clock"],
-	"modules-right": ["cpu", "temperature", "network", "bluetooth", "wireplumber", "custom/power"],
+    "group/vitals": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery", "cpu", "memory"
+        ]
+    },
 
-	"hyprland/workspaces": {
-		"on-click": "activate",
-		"sort-by-number": true,
-		"persistent-workspaces": {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": []
-		}
-	},
+    "group/controlcenter": {
+        "orientation": "horizontal",
+        "modules": [
+            "wireplumber", "bluetooth",  "network"
+        ]
+    },
 
-	"custom/media": {
-		"exec": "playerctl metadata --format '{{artist}} - {{title}}' -F",
-		"format": "{}",
-		"on-click": "playerctl play-pause",
-		"max-length": 60
-	},
+    "modules-left": ["group/vitals", "mpris"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["group/controlcenter", "clock", "custom/power"],
 
-	"clock": {
-		"format": "{:%H:%M %d/%m/%Y}",
-		"tooltip": false,
-		"on-click": "~/.config/waybar/scripts/khal.sh"
-	},
-
-	"cpu": {
-		"format": "CPU {usage}%",
-		"tooltip": false,
-		"on-click": "~/.config/waybar/scripts/btop.sh"
-	},
-
-	"temperature": {
-		"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-		"tooltip": false,
-		"on-click": "~/.config/waybar/scripts/btop.sh"
-	},
-
-	"network": {
-		"format": "",
-		"format-ethernet": "<span size='smaller'>\uef09</span>",
-		"format-wifi": "{icon}",
-		"format-disconnected": "\udb83\udc9c",
-		"format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
-		"tooltip": false,
-		"on-click": "nm-connection-editor"
-	},
-
-        "bluetooth": {
-	        "format": "\udb80\udcaf",
-	        "format-disabled": "\udb80\udcb2",
-        	"format-connected": "\udb80\udcb1",
-		"tooltip": false,
-		"on-click": "blueman-manager"
-	},
-
-	"wireplumber": {
-        	"format": "\udb81\udd7e {volume}%",
-        	"max-volume": 100,
-	        "scroll-step": 5,
-		"tooltip": false,
-		"on-click": "pavucontrol"
-	},
-
-	"custom/power": {
-		"format": "<span size='smaller'>\u23fb</span>",
-		"tooltip": false,
-		"on-click": "~/.config/waybar/scripts/power.sh"
-	}
-}	
+    "include": ["~/.config/waybar/modules.jsonc"]
+}

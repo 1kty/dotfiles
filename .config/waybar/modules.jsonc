@@ -1,0 +1,103 @@
+{
+    // left - group/vitals
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-time": "{H}:{m}",
+        "format-charging": " {capacity}% ({time})",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+
+    "cpu": {
+        "states": {
+            "warning": 75,
+            "critical": 95
+        },
+        "format": "  {usage}%",
+		"tooltip": false,
+    },
+
+    "memory": {
+        "interval": 10,
+        "states": {
+            "warning": 85,
+            "critical": 95
+        },
+        "format": "  {used}GiB",
+        "tooltip": false,
+    },
+
+    // left - mpris
+    "mpris": {
+        "format": "  {artist} - {title}",
+        "tooltip-format": "{album}",
+        "format-paused": "  {artist} - {title}",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next",
+        "max-length": 45
+    },
+
+    // center - hyprland/workspaces
+	"hyprland/workspaces": {
+        "format": "{icon}",	
+        "persistent-workspaces": { "*": 5 },
+		"on-click": "activate",
+		"sort-by-number": true,
+        "format-icons": {
+            "active": "󰮯",
+            "default": "",
+            "empty": "",
+            "special": ""
+        }
+	},
+
+    // right - group/controlcenter
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "hyprctl dispatch exec -- pavucontrol -t 1",
+        "scroll-step": 1,
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": ["", " "],
+        }
+    },
+
+    "bluetooth": {
+        "format": "{}",
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {device_alias}",
+        "tooltip-format": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t {device_battery_percentage}%",
+        "on-click": "hyprctl dispatch exec blueman-manager"
+    },
+
+    "network": {
+        "interval": 10,
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈁",
+        "format-disconnected": "󱘖",
+        "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
+        "on-click": "hyprctl dispatch exec nm-connection-editor"
+    },
+
+    // right - clock
+	"clock": {
+		"format": "{:%H:%M}",
+        "tooltip-format": "{calendar}",
+    },
+
+    // right - custom/power
+	"custom/power": {
+		"format": "⏻",
+		"tooltip": false,
+		"on-click": "~/.config/waybar/scripts/power.sh"
+	}
+}

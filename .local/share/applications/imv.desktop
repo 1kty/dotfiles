@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=imv
-Exec=imv %F
-Type=Application
-Terminal=false
-MimeType=image/png;image/jpeg;image/gif;image/webp;image/bmp;image/tiff;
-Categories=Graphics;Viewer;
