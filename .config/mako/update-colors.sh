@@ -17,4 +17,6 @@ for color_name in "${!colors[@]}"; do
   sed -i "0,/^$color_name.*/{s//$color_name=${colors[$color_name]}/}" $conffile
 done
 
+sed -i "/^\[urgency=high\]/,/^border-color/ s/^border-color=.*/border-color=$color1/" "$conffile"
+
 makoctl reload
