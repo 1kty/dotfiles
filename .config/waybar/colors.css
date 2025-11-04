@@ -1,11 +1,13 @@
-/* Tokyo night dark enhanced color theme */
+@import "/home/hadri/.cache/wal/colors-waybar.css";
 
-@define-color module-bg rgba(14, 14, 14, 1);
-@define-color tooltip-bg rgba(14, 14, 14, 1);
-@define-color fg #a2a2a9;
+@define-color module-bg @background;   
+@define-color tooltip-bg @background;           
+@define-color inactive @color1;               
+@define-color fg @foreground;                
 @define-color workspace-fg @fg;
 
-@define-color red #e67e80;
-@define-color blue #7fbbb3;
-@define-color yellow #dbbc7f;
-@define-color green #a7c080;
+
+@define-color red @color2;
+@define-color blue @color3;
+@define-color yellow @color4;
+@define-color green @color6;
