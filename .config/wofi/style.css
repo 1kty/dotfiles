@@ -1,0 +1,90 @@
+@import url('.cache/wal/colors-waybar.css');
+
+window {
+  margin: 0px;
+  border: 2px solid @color7;
+  border-radius: 10px;
+  background-color: @color0;
+  font-family: JetBrains Mono, monospace;
+  color: @color7;
+}
+
+#input {
+  margin: 5px;
+  border: 1px solid @color7;
+  color: @color7;
+  background-color: @color0;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+#input::placeholder {
+  color: @fg;
+}
+
+#input:focus {
+  color: @fg;
+}
+
+#input prompt {
+  color: @fg;
+}
+
+#input image {
+  color: @color7;
+}
+
+#prompt {
+  color: @fg;
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  color: @color7;
+  padding: 0px;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  padding: 5px;
+}
+
+#scroll {
+  margin: 0px;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @fg;
+  font-size: 14px;
+}
+
+#entry.activatable #text {
+  color: @fg;
+}
+
+#entry > * {
+  color: @fg;
+}
+
+#entry:selected {
+  background-color: @color8;
+  border-radius: 5px;
+}
+
+#entry:selected #text {
+  font-weight: bold;
+  color: @fg;
+}
+
+#entry:hover {
+  background-color: @color10;
+}
+
+#entry:hover #text {
+  color: @color11;
+}
+
