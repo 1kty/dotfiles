@@ -4,10 +4,7 @@ set -eu
 WALL=$(realpath "$1")
 
 echo "setting $WALL as wallpaper"
-hyprctl hyprpaper unload all
-hyprctl hyprpaper preload "$WALL"
-hyprctl hyprpaper wallpaper ", $WALL"
-cp -f "$WALL" "$HOME/.config/background"
+swww img --transition-type=fade --transition-duration=2 "$WALL"
 echo "set $WALL as wallpaper sucessfully"
 
 if command -v wal >/dev/null 2>&1; then
