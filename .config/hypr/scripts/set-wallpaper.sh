@@ -5,6 +5,7 @@ WALL=$(realpath "$1")
 
 echo "setting $WALL as wallpaper"
 swww img --transition-type=fade --transition-duration=2 "$WALL"
+cp -f "$WALL" "$HOME/.config/background"
 echo "set $WALL as wallpaper sucessfully"
 
 if command -v wal >/dev/null 2>&1; then
