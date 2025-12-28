@@ -1,0 +1,33 @@
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+	features = theme
+[delta "theme"]
+	file-added-label = [+]
+	file-copied-label = [==]
+	file-modified-label = [Δ]
+	file-removed-label = [-]
+	file-renamed-label = [->]
+	file-style = bold
+	file-decoration-style = box ul
+	line-numbers = true
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	hunk-header-decoration-style = omit
+	hunk-header-file-style = bold
+	hunk-header-style = line-number syntax italic
+	wrap-max-lines = unlimited
+	wrap-right-percent = 1
+[merge]
+	conflictStyle = zdiff3
+[include]
+	path = ~/.gitconfig.private
+

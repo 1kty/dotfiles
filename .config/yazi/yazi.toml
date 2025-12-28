@@ -1,0 +1,24 @@
+[mgr]
+show_hidden = true
+
+[tasks]
+image_bound = [10000, 10000]
+
+[[opener.set-wallpaper]]
+run  = '~/.config/hypr/scripts/set-wallpaper.sh "$1"'
+for  = "linux"
+desc = "Set as wallpaper"
+
+[[open.append_rules]]
+mime = "image/*"
+use  = [ "set-wallpaper", "open" ]
+
+[[opener.zathura]]
+run  = 'zathura "$@"'
+orphan = true
+for  = "linux"
+desc = "Open in zathura"
+
+[[open.prepend_rules]]
+mime = "application/pdf"
+use = [ "zathura" ]
