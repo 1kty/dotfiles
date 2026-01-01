@@ -10,7 +10,7 @@ echo "set $WALL as wallpaper sucessfully"
 
 if command -v wal >/dev/null 2>&1; then
     echo "applying pywal colors..."
-    wal -i "$WALL" --cols16 darken "${@:2}"
+    wal -i "$WALL" --cols16 darken "${@:2}" || wal -i "$WALL" --cols16 darken --backend colorthief "${@:2}"
     echo "pywal applied successfully"
     "$HOME/.config/mako/update-colors.sh"
 else

@@ -36,6 +36,7 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # env variables
+export PATH="$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 export VISUAL="$EDITOR"
