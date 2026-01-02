@@ -44,7 +44,7 @@ export PAGER="less -R"
 export WORDCHARS=""
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-export PNPM_HOME="/home/hadri/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # aliases
 alias eza="eza --icons --group-directories-first --color=always -a"
@@ -77,6 +77,14 @@ bindkey "^[[B" history-search-forward
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+function copy-buffer-to-clipboard() { echo -n "$BUFFER" | wl-copy }
+zle -N copy-buffer-to-clipboard
+bindkey '^Xc' copy-buffer-to-clipboard
+
 # history
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
@@ -104,6 +112,7 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
 export FZF_CTRL_R_OPTS="--reverse"
 
 # integrations
+autoload -Uz zmv
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(pyenv init - zsh)"
