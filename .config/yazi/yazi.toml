@@ -4,21 +4,17 @@ show_hidden = true
 [tasks]
 image_bound = [10000, 10000]
 
-[[opener.set-wallpaper]]
-run  = '~/.config/hypr/scripts/set-wallpaper.sh "$1"'
-for  = "linux"
-desc = "Set as wallpaper"
+[opener]
+set-wallpaper = [ 
+    { run = "set-wallpaper %s1", for = "linux", desc = "Set as wallpaper" }
+]
+zathura = [
+    { run = "zathura %s", orphan = true, for = "linux", desc = "Open in zathura" }
+]
 
-[[open.append_rules]]
-mime = "image/*"
-use  = [ "set-wallpaper", "open" ]
+[open]
+prepend_rules = [
+    { mime = "image/*", use = [ "open", "reveal", "set-wallpaper" ] },
+    { mime = "application/pdf", use = [ "zathura", "open" ] }
+]
 
-[[opener.zathura]]
-run  = 'zathura "$@"'
-orphan = true
-for  = "linux"
-desc = "Open in zathura"
-
-[[open.prepend_rules]]
-mime = "application/pdf"
-use = [ "zathura" ]
