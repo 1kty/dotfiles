@@ -1,0 +1,25 @@
+.theme-dark {
+  --accent-h: {{colors.primary.dark.hue}} !important;
+  --accent-s: {{colors.primary.dark.saturation}}% !important;
+  --accent-l: {{colors.primary.dark.lightness}}% !important;
+
+  /* sanctum */
+  --color-accent-rgb-d: {{colors.primary.dark.red}}, {{colors.primary.dark.green}}, {{colors.primary.dark.blue}} !important;
+
+  /* minimal */
+  --hl1: {{colors.primary.dark.rgba | set_alpha 0.3}} !important;
+  --hl2: {{colors.primary.dark.rgba | set_alpha 0.3}} !important;
+}
+
+.theme-light {
+  --accent-h: {{colors.primary.light.hue}} !important;
+  --accent-s: {{colors.primary.light.saturation}}% !important;
+  --accent-l: {{colors.primary.light.lightness}}% !important;
+
+  /* sanctum */
+  --color-accent-rgb-l: {{colors.primary.light.red}}, {{colors.primary.light.green}}, {{colors.primary.light.blue}} !important;
+
+  /* minimal */
+  --hl1: {{colors.primary.light.rgba | set_alpha 0.3}} !important;
+  --hl2: {{colors.primary.light.rgba | set_alpha 0.3}} !important;
+}

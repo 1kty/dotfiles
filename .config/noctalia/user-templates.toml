@@ -1,0 +1,6 @@
+[config]
+
+[templates.obsidian]
+input_path = "~/.config/noctalia/templates/obsidian.css"
+output_path = "~/hadri@obsidian/.obsidian/snippets/noctalia.css"
+
