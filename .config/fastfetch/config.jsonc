@@ -1,59 +1,36 @@
+
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+        "source": "$(find \"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/ascii/\" -type f -name \"cat-[0-9]*.txt\" | shuf -n 1)",
         "type": "file",
-        "source": "~/.config/fastfetch/ascii/berserk.txt"
-    },
-    "display": {
-        "size": {
-            "binaryPrefix": "jedec"
-        },
-        "freq": {
-            "ndigits": 3,
-            "spaceBeforeUnit": "never"
+        "padding": {
+            "left": 2,
+            "right": 6
         }
     },
-    "modules": [
-        "title",
-        "separator",
-        "os",
-        "host",
-        {
-            "type": "kernel",
-            "format": "{release}"
-        },
-        "uptime",
-        {
-            "type": "packages",
-            "combined": true
-        },
-        "shell",
-        {
-            "type": "display",
-            "compactType": "original",
-            "key": "Resolution"
-        },
-        "de",
-        "wm",
-        "wmtheme",
-        "theme",
-        "icons",
-        "terminal",
-        {
-            "type": "terminalfont",
-            "format": "{/name}{-}{/}{name}{?size} {size}{?}"
-        },
-        "cpu",
-        {
-            "type": "gpu",
-            "key": "GPU",
-            "format": "{name}"
-        },
-        {
-            "type": "memory",
-            "format": "{used} / {total}"
-        },
-        "break",
-        "colors"
-    ]
+  "modules": [
+    {
+        "type": "os",
+        "key": " OS",
+        "keyColor": "magenta"
+    },
+    {
+        "type": "packages",
+        "key": " Packages",
+        "keyColor": "magenta"
+    },
+    {
+        "type": "uptime",
+        "key": " Uptime",
+        "keyColor": "magenta"
+    },
+    {
+        "type": "command",
+        "key": " OS Age",
+        "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+        "keyColor": "magenta"
+    }
+  ]
 }
+
