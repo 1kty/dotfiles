@@ -4,3 +4,6 @@
 input_path = "~/.config/noctalia/templates/obsidian.css"
 output_path = "~/hadri@obsidian/.obsidian/snippets/noctalia.css"
 
+[templates.quickshell_overview]
+input_path  = "~/.config/noctalia/templates/quickshell-overview.qml"
+output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
