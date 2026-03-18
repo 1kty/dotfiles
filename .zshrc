@@ -45,6 +45,7 @@ export WORDCHARS=""
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm"
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org/" # fixes valgrind
 
 # aliases
 alias eza="eza --icons --group-directories-first --color=always -a"
