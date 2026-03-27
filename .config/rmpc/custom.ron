@@ -1,0 +1,123 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    format_tag_separator: ", ",
+    symbols: (
+        song: "",
+        dir: "",
+        playlist: "󰲹",
+        marker: "▌",
+        ellipsis: "...",
+        song_style: None,
+        dir_style: None,
+        playlist_style: None,
+    ),
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                size: "8",
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (
+                            size: "21",
+                            pane: Pane(AlbumArt),
+                        ),
+                        (
+                            size: "100%",
+                            pane: Split(
+                                direction: Vertical,
+                                panes: [
+                                    (
+                                        size: "2",
+                                        pane: Pane(Empty()),
+                                    ),
+                                    (
+                                        size: "2",
+                                        border_symbols: Empty,
+                                        borders: "LEFT | RIGHT",
+                                        pane: Pane(Header),
+                                    ),
+                                    (
+                                        size: "1",
+                                        pane: Pane(Empty()),
+                                    ),
+                                    (
+                                        size: "1",
+                                        pane: Pane(Tabs),
+                                    ),
+                                    (
+                                        size: "2",
+                                        pane: Pane(Empty()),
+                                    ),
+                                ]
+                            )
+                        ),
+                    ]
+                ),
+            ),
+            (
+                size: "1",
+                pane: Pane(Empty())
+            ),
+            (
+                size: "100%",
+                pane: Pane(TabContent),
+            ),
+            (
+                pane: Pane(ProgressBar),
+                size: "1",
+            ),
+        ],
+    ),
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "magenta", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "magenta", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "magenta", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Title)), style: (fg: "magenta", modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (fg: "magenta", modifiers: "Bold"))
+                    ),
+                ],
+                right: [
+                    (kind: Text("Vol: ")),
+                    (kind: Property(Status(Volume)), style: (fg: "magenta", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "magenta", modifiers: "Bold"))
+                ]
+            ),
+            (
+            left: [
+                    (kind: Property(Status(Elapsed))),
+                    (kind: Text(" / ")),
+                    (kind: Property(Status(Duration))),
+                    (kind: Text(" (")),
+                    (kind: Property(Status(Bitrate))),
+                    (kind: Text(" kbps)"))
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "cyan", modifiers: "Bold"),
+                        default: (kind: Text("No song"), style: (fg: "cyan", modifiers: "Bold"))
+                    ),
+                    (kind: Text(" - ")),
+                    (kind: Property(Song(Album)),
+                        default: (kind: Text("No song"))
+                    )
+                ],
+                right: [
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "cyan", modifiers: "Bold"),
+                            separator_style: (fg: "cyan")))
+                        ),
+                    ),
+                ]
+            )
+        ],
+    ),
+)

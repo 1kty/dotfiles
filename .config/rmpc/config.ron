@@ -1,0 +1,112 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    address: "127.0.0.1:6600",
+    theme: "custom",
+    keep_state_on_song_change: false,
+    browser_song_sort: [Disc, Track, Artist, Title],
+    directories_sort: SortFormat(group_by_type: true, reverse: false),
+    keybinds: (
+        clear: false,
+        global: {
+            "1":          SwitchToTab("Queue"),
+            "2":          SwitchToTab("Browse"),
+            "4":          SwitchToTab("Artists"),
+            "4":          SwitchToTab("Albums"),
+            "5":          SwitchToTab("Lyrics"),
+            "6":          SwitchToTab("Search"),
+        },
+    ),
+    search: (
+        case_sensitive: false,
+        ignore_diacritics: true,
+        search_button: false,
+        mode: Contains,
+        tags: [
+            (value: "any",         label: "Any Tag"),
+            (value: "artist",      label: "Artist"),
+            (value: "album",       label: "Album"),
+            (value: "albumartist", label: "Album Artist"),
+            (value: "title",       label: "Title"),
+            (value: "filename",    label: "Filename"),
+            (value: "genre",       label: "Genre"),
+        ],
+    ),
+    artists: (
+        album_display_mode: NameOnly,
+        album_sort_by: Name,
+    ),
+    tabs: [
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "2",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty())
+                                ),
+                                (
+                                    size: "100%",
+                                    borders: "BOTTOM",
+                                    border_symbols: Rounded,
+                                    pane: Pane(QueueHeader())
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty())
+                                ),
+                            ]
+                        )
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty())
+                                ),
+                                (
+                                    size: "100%",
+                                    pane: Pane(Queue)
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty())
+                                ),
+                            ]
+                        )
+                    ),
+                ],
+            )
+        ),
+        (
+            name: "Browse",
+            pane: Pane(Directories),
+        ),
+        (
+            name: "Artists",
+            pane: Pane(Artists),
+        ),
+        (
+            name: "Albums",
+            pane: Pane(Albums),
+        ),
+        (
+            name: "Lyrics",
+            pane: Pane(Lyrics)
+        ),
+        (
+            name: "Search",
+            pane: Pane(Search),
+        ),
+    ],
+)
