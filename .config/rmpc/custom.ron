@@ -13,6 +13,22 @@
         dir_style: None,
         playlist_style: None,
     ),
+    highlighted_item_style: (fg: "green", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "white", modifiers: "Bold"),
+    borders_style: (fg: "green"),
+    highlight_border_style: (fg: "green"),
+    progress_bar: (
+        elapsed_style: (fg: "green"),
+        thumb_style: (fg: "green"),
+    ),
+    scrollbar: (
+        symbols: ["│", "█", "▲", "▼"],
+        thumb_style: (fg: "green"),
+    ),
+    tab_bar: (
+        active_style: (fg: "black", bg: "green", modifiers: "Bold"),
+        inactive_style: (),
+    ),
     layout: Split(
         direction: Vertical,
         panes: [
@@ -76,23 +92,23 @@
         rows: [
             (
                 left: [
-                    (kind: Text("["), style: (fg: "magenta", modifiers: "Bold")),
-                    (kind: Property(Status(State)), style: (fg: "magenta", modifiers: "Bold")),
-                    (kind: Text("]"), style: (fg: "magenta", modifiers: "Bold"))
+                    (kind: Text("["), style: (fg: "green", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "green", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "green", modifiers: "Bold"))
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (fg: "magenta", modifiers: "Bold"),
-                        default: (kind: Text("No Song"), style: (fg: "magenta", modifiers: "Bold"))
+                    (kind: Property(Song(Title)), style: (fg: "green", modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (fg: "green", modifiers: "Bold"))
                     ),
                 ],
                 right: [
                     (kind: Text("Vol: ")),
-                    (kind: Property(Status(Volume)), style: (fg: "magenta", modifiers: "Bold")),
-                    (kind: Text("% "), style: (fg: "magenta", modifiers: "Bold"))
+                    (kind: Property(Status(Volume)), style: (modifiers: "Bold")),
+                    (kind: Text("%"), style: (modifiers: "Bold"))
                 ]
             ),
             (
-            left: [
+                left: [
                     (kind: Property(Status(Elapsed))),
                     (kind: Text(" / ")),
                     (kind: Property(Status(Duration))),
@@ -101,8 +117,8 @@
                     (kind: Text(" kbps)"))
                 ],
                 center: [
-                    (kind: Property(Song(Artist)), style: (fg: "cyan", modifiers: "Bold"),
-                        default: (kind: Text("No song"), style: (fg: "cyan", modifiers: "Bold"))
+                    (kind: Property(Song(Artist)), style: (fg: "white", modifiers: "Bold"),
+                        default: (kind: Text("No song"), style: (fg: "white", modifiers: "Bold"))
                     ),
                     (kind: Text(" - ")),
                     (kind: Property(Song(Album)),
@@ -112,8 +128,8 @@
                 right: [
                     (
                         kind: Property(Widget(States(
-                            active_style: (fg: "cyan", modifiers: "Bold"),
-                            separator_style: (fg: "cyan")))
+                            active_style: (fg: "green", modifiers: "Bold"),
+                            separator_style: (fg: "green")))
                         ),
                     ),
                 ]
