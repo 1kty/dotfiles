@@ -10,6 +10,7 @@ input {
         natural-scroll
     }
 
+    disable-power-key-handling
     focus-follows-mouse max-scroll-amount="0%"
 }
 
