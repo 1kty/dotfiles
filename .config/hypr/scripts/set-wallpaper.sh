@@ -7,7 +7,6 @@ if [ $# -lt 1 ]; then
 fi
 
 WALL=$(realpath "$1")
-MONITOR=eDP-1
 
 if [ ! -f "$WALL" ]; then
     echo "Error: file not found: $WALL"
@@ -15,7 +14,7 @@ if [ ! -f "$WALL" ]; then
 fi
 
 echo "Setting $WALL as wallpaper..."
-qs -c noctalia-shell ipc call wallpaper set $WALL $MONITOR
+noctalia msg wallpaper-set $WALL
 cp -f "$WALL" "$HOME/.config/background"
 echo "Set $WALL as wallpaper successfully"
 

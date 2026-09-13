@@ -1,9 +1,7 @@
-[config]
-
-[templates.obsidian]
-input_path = "~/.config/noctalia/templates/obsidian.css"
+[theme.templates.user.obsidian]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/obsidian.css"
 output_path = "~/hadri@obsidian/.obsidian/snippets/noctalia.css"
 
-[templates.quickshell_overview]
-input_path  = "~/.config/noctalia/templates/quickshell-overview.qml"
-output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
+[theme.templates.user.quickshell_overview]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/quickshell-overview.qml"
+output_path = "$XDG_CONFIG_HOME/quickshell/overview/common/Appearance.colors.qml"

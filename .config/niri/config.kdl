@@ -29,7 +29,7 @@ cursor {
     xcursor-size 20
 }
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-at-startup "hypridle"
 spawn-at-startup "udiskie"
 
@@ -86,12 +86,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^noctalia-background-.*$"
-    place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="^noctalia-overview.*$"
+    match namespace="^noctalia-backdrop"
     place-within-backdrop true
 }
 
@@ -113,13 +108,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+R { spawn "ghostty"; }
-    Mod+Space repeat=false { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+E { spawn "nautilus"; }
     Mod+B { spawn "zen-browser"; }
     Mod+C { spawn "code"; }
-    Mod+Escape repeat=false { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
-    Mod+V repeat=false { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+Period repeat=false { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    Mod+Escape repeat=false { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+V repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Super+Tab repeat=false { toggle-overview; }
 
     Mod+Print { screenshot; }
@@ -146,8 +140,6 @@ binds {
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
-
-    Alt+Tab { focus-window-previous; }
 
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
@@ -212,5 +204,6 @@ binds {
     Ctrl+Alt+Delete { quit; }
 }
 
-include "./noctalia.kdl"
 
+
+include "noctalia.kdl"
