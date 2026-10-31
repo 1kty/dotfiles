@@ -10,6 +10,12 @@
 	followTags = true
 [fetch]
 	prune = true
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[rebase]
+	autoStash = true
 [core]
 	pager = delta
 [interactive]
@@ -38,4 +44,3 @@
 	conflictStyle = zdiff3
 [include]
 	path = ~/.gitconfig.private
-
