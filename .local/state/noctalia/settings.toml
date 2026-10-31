@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [backdrop]
 enabled = true
@@ -8,7 +8,6 @@ order = [ "default" ]
 
     [bar.default]
     center = [ "workspaces" ]
-    enabled = true
     end = [ "tray", "notifications", "volume", "brightness", "battery", "control-center" ]
     margin_edge = 6
     margin_ends = 8
@@ -20,6 +19,11 @@ warning_threshold = 20
 
 [calendar]
 enabled = true
+
+
+    [calendar.reminders]
+    default_lead_minutes = 0
+    enabled = false
 
 [control_center]
 sidebar_section = "none"
@@ -37,16 +41,49 @@ widget_order = []
 
 [lockscreen]
 blur_intensity = 0.0
+transition = []
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1920.0
+    cy = 1978.0
+    output = "HDMI-A-1"
+    placement_height = 2160.0
+    placement_width = 3840.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
@@ -62,6 +99,33 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface"
         background_opacity = 1.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 706.0
+    cy = 1498.0
+    output = "winit"
+    placement_height = 1680.0
+    placement_width = 1412.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
@@ -101,6 +165,9 @@ position = "top_right"
     [osd.kinds]
     media = false
 
+[plugins]
+enabled = []
+
 [shell]
 button_borders = false
 card_borders = false
@@ -112,13 +179,17 @@ polkit_agent = true
 popup_borders = false
 
     [shell.launcher]
-    pinned = [ "zen", "obsidian", "code", "chatgpt", "vesktop", "spotify", "zotero", "chromium" ]
+    default_view = "pinned"
+    pinned = [ "zen", "obsidian", "code", "chatgpt", "vesktop", "spotify", "zotero", "chromium", "localsend" ]
 
         [shell.launcher.providers.calculator]
         prefix = ""
 
         [shell.launcher.providers.emoji]
         global = true
+
+        [shell.launcher.providers.panels]
+        global = false
 
         [shell.launcher.providers.session]
         global = true
@@ -174,14 +245,15 @@ popup_borders = false
     direction = "center"
 
 [theme]
+builtin = "Noctalia"
 community_palette = "Oxocarbon"
 mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "ghostty", "hyprland", "niri" ]
-    community_ids = [ "codex", "opencode", "zathura", "yazi" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "niri" ]
+    community_ids = [ "claude-code", "codex", "opencode", "telegram", "zathura", "yazi" ]
 
 [wallpaper]
 transition = [ "fade" ]
